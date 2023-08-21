@@ -1,0 +1,34 @@
+This project is a simple python server that use "uvicorn" and "fastapi" as main moduls.
+
+fastapi: to make the api accessible and show the main page to shorten links
+uvicorn: tohost the webserver
+
+when someone visit your shortenlink, it send the user ip to a dedicated discord webhook
+
+instruction of how to use it:
+
+so to start you have to install a software called python (https://python.org/) i suggest the version: 3.10 of it
+once its installed and you did the steps to install it correctly. when you open "CMD" aka "Command prompt" you can type: "py" and it should show you the python version and prompt you in a python console.
+
+once python installed, download the project in a folder for example on your desktop.
+if u downloaded it in zip file, you willneed to extract the archive
+
+once download / extracted. open command prompt in the directory with the project files in it and do the following command in "CMD" : `pip install -r requirements.txt`
+to install the needed dependencies
+
+once the dependencies installed, you can start the webserver doing this command in the same cmd as you installed the dependencies:
+py main.py
+
+and now you can visit the hosted webserver at: http://127.0.0.1:8000/
+
+go search for a long link and a discord webhook
+input the long link and your discord webhook and once all this complete click "shorten" button
+
+it will show a link bellow the button you just pressed. copy it and visit it, you will be redirected to the long link and your ip will be sent to the discord webhook.
+
+if you want to use it as and make it work on a public ip instead of a local, just go edit the "shorten.html" file and replace "http://127.0.0.1:8000/" by : "http://(your public ip):8000/"
+note that this requires an advenced level of networking and a portforwarding precedure
+
+
+if you still need support, go contact: "kepardev" on discord
+
