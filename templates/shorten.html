@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <script>
+        async function shortenUrl() {
+            const urlInput = document.getElementById("url").value;
+            const webhookInput = document.getElementById("webhook").value;
+
+            const requestData = {
+                url: urlInput,
+                webhook: webhookInput
+            };
+
+            const response = await fetch("/shorten", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestData)
+            });
+
+            const responseData = await response.json();
+
+            // Display the shortened URL
+            const shortenedUrlElement = document.getElementById("shortenedUrl");
+            shortenedUrlElement.textContent = `Shortened URL: http://127.0.0.1:8000/s/${responseData.short_link}`;
+        }
+    </script>
+</head>
+<body>
+    <h2>URL Shortener</h2>
+    <label for="url">Long URL:</label><br>
+    <input type="text" id="url" name="url" required><br>
+
+    <label for="webhook">Discord Webhook:</label><br>
+    <input type="text" id="webhook" name="webhook" required><br>
+
+    <button type="button" onclick="shortenUrl()">Shorten URL</button>
+    
+    <!-- Element to display the shortened URL -->
+    <p id="shortenedUrl"></p>
+</body>
+</html>
